@@ -16,6 +16,7 @@ public class MyCollection {
 
         System.out.println("linkedList.toString() = " + linkedList.toString());
 
+
         System.out.println("linkedList.get(1) = " + linkedList.get(1));
 
         linkedList.remove(15);
