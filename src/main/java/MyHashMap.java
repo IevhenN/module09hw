@@ -13,28 +13,7 @@ public class MyHashMap<K, V> implements MyCollectible {
     }
 
     public MyHashMap(int factor) {
-        backets = new Node [factor];
-    }
-
-    @Override
-    public String toString() {
-        String[] result = new String[size];
-        int count = 0;
-        Node <K,V> currentNode = null;
-
-        for (int i = 0; i < backets.length; i++) {
-            currentNode = backets[i];
-
-            if (currentNode == null) {
-                continue;
-            }
-            while (currentNode!=null){
-                result[count] = "{"+currentNode.key.toString()+" = "+currentNode.value.toString()+"}";
-                count++;
-                currentNode = currentNode.next;
-            }
-        }
-        return Arrays.toString(result);
+        backets = new Node[factor];
     }
 
     //=========================================================================
@@ -142,5 +121,27 @@ public class MyHashMap<K, V> implements MyCollectible {
             this.value = value;
             if (parentNode != null) parentNode.next = this;
         }
+    }
+
+    //============================================================
+    @Override
+    public String toString() {
+        String[] result = new String[size];
+        int count = 0;
+        Node<K, V> currentNode = null;
+
+        for (int i = 0; i < backets.length; i++) {
+            currentNode = backets[i];
+
+            if (currentNode == null) {
+                continue;
+            }
+            while (currentNode != null) {
+                result[count] = "{" + currentNode.key.toString() + " = " + currentNode.value.toString() + "}";
+                count++;
+                currentNode = currentNode.next;
+            }
+        }
+        return Arrays.toString(result);
     }
 }

@@ -3,31 +3,12 @@ import java.util.Arrays;
 public class MyStack<E> extends BiDirectionalList<E> implements MyCollectible, MyRemovable {
 
     int size = 0;
-//    Node<E> first;
+    //    Node<E> first;
     Node<E> last;
 
     //============================================================
     public MyStack() {
 
-    }
-
-    @Override
-    public String toString() {
-        String[] result = new String[size];
-
-        if (size != 0) {
-            Node<E> currentNode = first;
-
-            for (int i = 0; i < size; i++) {
-                if (i != 0) {
-                    currentNode = currentNode.next;
-                }
-                ;
-                result[i] = currentNode.item.toString();
-            }
-        }
-
-        return Arrays.toString(result);
     }
 
     //============================================================
@@ -57,10 +38,11 @@ public class MyStack<E> extends BiDirectionalList<E> implements MyCollectible, M
     }
 
     private void removeLast() {
-        if (last.prev!=null) last.prev.next=null;
+        if (last.prev != null) last.prev.next = null;
         last = last.prev;
         size--;
     }
+
     //============================================================
     public void push(E item) {
         Node<E> newNode = new Node<>(last, item, null);
@@ -115,18 +97,38 @@ public class MyStack<E> extends BiDirectionalList<E> implements MyCollectible, M
         return size;
     }
 
-    public E peek(){
-        if (last==null) return null;
+    public E peek() {
+        if (last == null) return null;
 
         return last.item;
     }
 
-    public E poll(){
-        if (last==null) return null;
+    public E poll() {
+        if (last == null) return null;
 
         E result = last.item;
         removeLast();
 
         return result;
+    }
+
+    //============================================================
+    @Override
+    public String toString() {
+        String[] result = new String[size];
+
+        if (size != 0) {
+            Node<E> currentNode = first;
+
+            for (int i = 0; i < size; i++) {
+                if (i != 0) {
+                    currentNode = currentNode.next;
+                }
+                ;
+                result[i] = currentNode.item.toString();
+            }
+        }
+
+        return Arrays.toString(result);
     }
 }

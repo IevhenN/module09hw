@@ -16,11 +16,6 @@ public class MyArrayList<E> implements MyCollectible, MyRemovable {
         this.startLength = startLength;
     }
 
-    @Override
-    public String toString() {
-        return Arrays.toString(Arrays.copyOf(items, size));
-    }
-
     //============================================================
     private void changeSpace(int endIndex) {
         int newLength = items.length;
@@ -43,7 +38,7 @@ public class MyArrayList<E> implements MyCollectible, MyRemovable {
         return true;
     }
 
-    public int getLength(){
+    public int getLength() {
         return items.length;
     }
 
@@ -62,11 +57,11 @@ public class MyArrayList<E> implements MyCollectible, MyRemovable {
     @Override
     public boolean remove(int index) {
 
-        if (!indexValid(index)){
+        if (!indexValid(index)) {
             return false;
         }
 
-        System.arraycopy(items, index+1, items, index, size-index-1);
+        System.arraycopy(items, index + 1, items, index, size - index - 1);
 
         size--;
         changeSpace(size);
@@ -81,7 +76,15 @@ public class MyArrayList<E> implements MyCollectible, MyRemovable {
     }
 
     public E get(int index) {
+        if (!indexValid(index)) {
+            return null;
+        }
         return (E) items[index];
     }
 
+    //============================================================
+    @Override
+    public String toString() {
+        return Arrays.toString(Arrays.copyOf(items, size));
+    }
 }

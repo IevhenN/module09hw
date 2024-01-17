@@ -119,22 +119,22 @@ public class MyCollection {
 
 
         // MyStack===============================================================
-        Car car1 = new Car("Ford","Focus","11111");
-        Car car2 = new Car("Renault","Megan","22222");
-        Car car3 = new Car("Toyota","Camry","33333");
-        Car car4 = new Car("BMW","X5","44444");
+        Car car1 = new Car("Ford", "Focus", "11111");
+        Car car2 = new Car("Renault", "Megan", "22222");
+        Car car3 = new Car("Toyota", "Camry", "33333");
+        Car car4 = new Car("BMW", "X5", "44444");
 
         LicenseNumber number1 = new LicenseNumber("XA 0001 XA");
         LicenseNumber number2 = new LicenseNumber("KI 0002 KI");
         LicenseNumber number3 = new LicenseNumber("NM 0003 NM");
         LicenseNumber number4 = new LicenseNumber("ZP 0004 ZP");
 
-        MyHashMap <Car,LicenseNumber> map = new MyHashMap<>();
+        MyHashMap<Car, LicenseNumber> map = new MyHashMap<>();
 
-        map.put(car1,number1);
-        map.put(car2,number2);
-        map.put(car3,number3);
-        map.put(car4,number4);
+        map.put(car1, number1);
+        map.put(car2, number2);
+        map.put(car3, number3);
+        map.put(car4, number4);
 
         System.out.println("map.toString() = " + map.toString());
 

@@ -11,25 +11,6 @@ public class MyLinkedList<E> extends BiDirectionalList<E> implements MyCollectib
 
     }
 
-    @Override
-    public String toString() {
-        String[] result = new String[size];
-
-        if (size != 0) {
-            Node<E> currentNode = first;
-
-            for (int i = 0; i < size; i++) {
-                if (i != 0) {
-                    currentNode = currentNode.next;
-                }
-                ;
-                result[i] = currentNode.item.toString();
-            }
-        }
-
-        return Arrays.toString(result);
-    }
-
     //============================================================
     private Node<E> getNode(int index) {
         Node<E> currentNode;
@@ -120,4 +101,23 @@ public class MyLinkedList<E> extends BiDirectionalList<E> implements MyCollectib
         return getNode(index).item;
     }
 
+    //============================================================
+    @Override
+    public String toString() {
+        String[] result = new String[size];
+
+        if (size != 0) {
+            Node<E> currentNode = first;
+
+            for (int i = 0; i < size; i++) {
+                if (i != 0) {
+                    currentNode = currentNode.next;
+                }
+                ;
+                result[i] = currentNode.item.toString();
+            }
+        }
+
+        return Arrays.toString(result);
+    }
 }

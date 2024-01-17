@@ -10,30 +10,10 @@ public class MyQueue<E> extends BiDirectionalList<E> implements MyCollectible {
     public MyQueue() {
 
     }
-
-    @Override
-    public String toString() {
-        String[] result = new String[size];
-
-        if (size != 0) {
-            Node<E> currentNode = first;
-
-            for (int i = 0; i < size; i++) {
-                if (i != 0) {
-                    currentNode = currentNode.next;
-                }
-                ;
-                result[i] = currentNode.item.toString();
-            }
-        }
-
-        return Arrays.toString(result);
-    }
-
     //============================================================
 
     private void removeFirst() {
-        if (first.next!=null) first.next.prev=null;
+        if (first.next != null) first.next.prev = null;
         first = first.next;
 
         size--;
@@ -68,14 +48,14 @@ public class MyQueue<E> extends BiDirectionalList<E> implements MyCollectible {
         return size;
     }
 
-    public E peek(){
-        if (first==null) return null;
+    public E peek() {
+        if (first == null) return null;
 
         return first.item;
     }
 
-    public E poll(){
-        if (first==null) return null;
+    public E poll() {
+        if (first == null) return null;
 
         E result = first.item;
 
@@ -84,4 +64,23 @@ public class MyQueue<E> extends BiDirectionalList<E> implements MyCollectible {
         return result;
     }
 
+    //============================================================
+    @Override
+    public String toString() {
+        String[] result = new String[size];
+
+        if (size != 0) {
+            Node<E> currentNode = first;
+
+            for (int i = 0; i < size; i++) {
+                if (i != 0) {
+                    currentNode = currentNode.next;
+                }
+                ;
+                result[i] = currentNode.item.toString();
+            }
+        }
+
+        return Arrays.toString(result);
+    }
 }

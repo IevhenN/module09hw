@@ -12,11 +12,6 @@ public class LicenseNumber {
     }
 
     @Override
-    public String toString() {
-        return "№ " + number;
-    }
-
-    @Override
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
@@ -27,5 +22,11 @@ public class LicenseNumber {
     @Override
     public int hashCode() {
         return Objects.hash(number);
+    }
+
+    //============================================================
+    @Override
+    public String toString() {
+        return "№ " + number;
     }
 }

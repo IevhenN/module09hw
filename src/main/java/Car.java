@@ -24,11 +24,6 @@ public class Car {
     }
 
     @Override
-    public String toString() {
-        return brand + " " + model;
-    }
-
-    @Override
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
@@ -39,5 +34,11 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(brand, model, sn);
+    }
+
+    //============================================================
+    @Override
+    public String toString() {
+        return brand + " " + model;
     }
 }
